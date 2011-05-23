@@ -33,18 +33,11 @@ SelectionRange = function(textinput) {
 			  e.setSelectionRange(start, start + len);
 			}) ||
 			(document.selection && function() {
-				var range = document.selection.createRange(),
-				copy = range.duplicate();
-				copy.moveToElementText(e);
-				copy.setEndPoint('EndToEnd', range);
-
-				/*
-				var range = textarea.createTextRange();
+				var range = e.createTextRange();
 				range.collapse(true);
 				range.moveStart('character', start);
 				range.moveEnd('character', len);
 				range.select();
-				*/
 			}) ||
 			function() {
 			  e.select();
