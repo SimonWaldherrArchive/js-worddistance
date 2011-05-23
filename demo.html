@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo</title>
+		<script type="text/javascript" src="selection-range.js"></script>
+  </head>
+  <body>
+	  <textarea id="content"></textarea>
+		<button id="select">Select First 3 Characters</button>
+		<button id="insert">Insert Text</button>
+		<button id="get">Get Text Selection</button>
+		<script type="text/javascript">
+		  var sr = new SelectionRange(document.getElementById('content'));
+			document.getElementById('select').onclick = function() {
+				sr.selectText(0, 3);
+			};
+			document.getElementById('insert').onclick = function() {
+				sr.insertText(' Text ');
+			};
+			document.getElementById('get').onclick = function() {
+				selection = sr.getTextSelection();
+				alert("Start:" + selection.start + " End:" + selection.end + " Text: " + selection.text);
+			};
+		</script>
+  </body>
+</html>
+
