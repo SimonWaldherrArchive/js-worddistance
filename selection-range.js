@@ -1,3 +1,9 @@
+/*
+ * JS Selection Range 0.1
+ * https://github.com/lmws/js-selection-range
+ * MIT license
+ */
+
 (function() {
 	_selection = function(textinput) {
 		textinput.getTextSelection = function() {
