@@ -10,17 +10,19 @@
 		<button id="insert">Insert Text</button>
 		<button id="get">Get Text Selection</button>
 		<script type="text/javascript">
-		  var sr = new SelectionRange(document.getElementById('content'));
-			document.getElementById('select').onclick = function() {
-				sr.selectText(0, 3);
-			};
-			document.getElementById('insert').onclick = function() {
-				sr.insertText(' Text ');
-			};
-			document.getElementById('get').onclick = function() {
-				selection = sr.getTextSelection();
-				alert("Start:" + selection.start + " End:" + selection.end + " Text: " + selection.text);
-			};
+		  (function() {
+				var selection = _selection(document.getElementById('content'));
+				document.getElementById('select').onclick = function() {
+					selection.selectText(0, 3);
+				};
+				document.getElementById('insert').onclick = function() {
+					selection.insertText(' Text ');
+				};
+				document.getElementById('get').onclick = function() {
+					var s = selection.getTextSelection();
+					alert("Start:" + s.start + " End:" + s.end + " Text: " + s.text);
+				};
+			})();
 		</script>
   </body>
 </html>
